@@ -10,6 +10,8 @@ Se encontra aqui os códigos com os scripts para o Projeto Final em Engenharia d
 e os arquivos de dados utilizados para tirar os resultados sobre o Enem 2017:
 
 
+
+
 1) Enem01Geral.py
   
 
@@ -20,6 +22,8 @@ da seção 5.1.6 do trabalho.
   Além disso, tem todas as funções para tirar os resultados gerais mostrados nas seções 5.1, 5.1.2, 5.1.3, 5.1.4, 5.1.8 e 5.1.9 do trabalho.
   
   
+  
+  
 2) EnemAB.py
 
 
@@ -27,18 +31,27 @@ da seção 5.1.6 do trabalho.
 com a alternativa marcada pelo inscrito naquela questão. Isso permitiu demonstrar a distribuição de marcação das
 alternativas visto na seção 5.1.7 do trabalho.
 
+
+
 3) EnemDF.py
 
   São os Scripts usados para tirar os resultados com relação ao Distrito Federal comuma amostra de 10000 inscritos
 dessa região como mostrado na seção 5.1.5 do trabalho.
 
+
+
 4) micros_dados_enem_2017_10000
 
   É uma amostra de 10000 inscritos dos microdados do Enem 2017 utilizada nos códigos "Enem01Geral.py" e "EnemAB.py".
 
+
+
+
 5) sample_df_10000.csv
 
   É uma amostra de 10000 inscritos localizados no DF, utilizada no código "EnemDF.py"
+
+
 
 6) Dicionário_Microdados_Enem_2017
 
