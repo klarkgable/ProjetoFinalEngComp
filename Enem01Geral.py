@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import pandas as pd
@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 dados= pd.read_excel('C:\\Users\SOLDADO GABLE\Desktop\micros_dados_enem_2017_10000.xls',encoding = "ISO-8859-1",sep =';')
 
 
-# In[ ]:
+# In[2]:
 
 
 #Vetores com respostas e gabaritos das provas
@@ -28,7 +28,7 @@ gabaritoLC=dados.TX_GABARITO_LC   #Vetor com o gabarito da parte objetiva da pro
 gabaritoMT=dados.TX_GABARITO_MT    #Vetor com o gabarito da parte objetiva da prova de Matemática
 
 
-# In[ ]:
+# In[3]:
 
 
 #Eliminando os campos nulos
@@ -51,6 +51,12 @@ gabaritoMT.dropna(inplace=True)
 
 
 # In[ ]:
+
+
+
+
+
+# In[4]:
 
 
 #ROTINA PARA GERAR COLUNAS DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Ciências da Natureza
@@ -513,7 +519,7 @@ dados['TX_Result_CN_questao44']=resultCNq44
 dados['TX_Result_CN_questao45']=resultCNq45
 
 
-# In[ ]:
+# In[5]:
 
 
 #ROTINA PARA GERAR COLUNA DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Ciências Humanas
@@ -977,6 +983,18 @@ dados['TX_Result_CH_questao45']=resultCHq45
 
 
 # In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[6]:
 
 
 #ROTINA PARA GERAR COLUNA DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Linguagens e Códigos
@@ -1487,7 +1505,7 @@ dados['TX_Result_LC_questao49']=resultLCq49
 dados['TX_Result_LC_questao50']=resultLCq50
 
 
-# In[ ]:
+# In[7]:
 
 
 #ROTINA PARA GERAR COLUNA DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Matemática
@@ -1950,7 +1968,7 @@ dados['TX_Result_MT_questao44']=resultMTq44
 dados['TX_Result_MT_questao45']=resultMTq45
 
 
-# In[ ]:
+# In[8]:
 
 
 #Filtrando os dados pelo caderno azul
@@ -1968,7 +1986,7 @@ cadAzulLC=dados.loc[dados.CO_PROVA_LC==399.0] #faz filtragem de dados com CO_PRO
 cadAzulMT=dados.loc[dados.CO_PROVA_MT==403.0]#faz filtragem de dados com CO_PROVA_MT=403 azul
 
 
-# In[ ]:
+# In[9]:
 
 
 ###  Calculando media de acertos em cada questão, na prova de CN ####
@@ -2021,7 +2039,7 @@ mediaQ44CNaz=cadAzulCN.TX_Result_CN_questao44.mean()
 mediaQ45CNaz=cadAzulCN.TX_Result_CN_questao45.mean()
 
 
-# In[ ]:
+# In[10]:
 
 
 #Printando as medias de CN, caderno azul
@@ -2072,7 +2090,7 @@ mediaQ44CNaz*100,
 mediaQ45CNaz*100)
 
 
-# In[ ]:
+# In[11]:
 
 
 ###  Calculando media de acertos em cada questão, na prova de CH ####
@@ -2125,7 +2143,7 @@ mediaQ44CHaz=cadAzulCH.TX_Result_CH_questao44.mean()
 mediaQ45CHaz=cadAzulCH.TX_Result_CH_questao45.mean()
 
 
-# In[ ]:
+# In[12]:
 
 
 #Printando as medias de CH, caderno azul
@@ -2176,7 +2194,7 @@ mediaQ44CHaz*100,
 mediaQ45CHaz*100)
 
 
-# In[ ]:
+# In[13]:
 
 
 ###  Calculando media de acertos em cada questão, na prova de LC ####
@@ -2234,7 +2252,7 @@ mediaQ49LCaz=cadAzulLC.TX_Result_LC_questao49.mean()
 mediaQ50LCaz=cadAzulLC.TX_Result_LC_questao50.mean()
 
 
-# In[ ]:
+# In[14]:
 
 
 #Printando as medias de LC, caderno azul
@@ -2296,7 +2314,7 @@ mediaQ50LCaz*100)
 
 
 
-# In[ ]:
+# In[15]:
 
 
 ###  Calculando media de acertos em cada questão, na prova de MT ####
@@ -2349,7 +2367,7 @@ mediaQ44MTaz=cadAzulMT.TX_Result_MT_questao44.mean()
 mediaQ45MTaz=cadAzulMT.TX_Result_MT_questao45.mean()
 
 
-# In[ ]:
+# In[16]:
 
 
 #Printando as medias de MT, caderno azul
@@ -2400,7 +2418,7 @@ mediaQ44MTaz*100,
 mediaQ45MTaz*100)
 
 
-# In[ ]:
+# In[17]:
 
 
 #abstraindo as medias de notas dos inscritos nas provas
@@ -2432,7 +2450,7 @@ mediaMT=notasMT.mean()
 print(mediaCN,mediaCH,mediaLC,mediaMT)
 
 
-# In[ ]:
+# In[18]:
 
 
 #FILTRANDO AS COLUNAS PELOS ESTADOS BRASILEIROS E TIRANDO A MÉDIA DE NOTAS EM CADA UM
@@ -2556,7 +2574,7 @@ mediaSEmt=SE.NU_NOTA_MT.mean()
 #dados.SG_UF_RESIDENCIA.describe()
 
 
-# In[ ]:
+# In[19]:
 
 
 #FILTRANDO A COLUNA ESPECÍFICA PARA O DF E MEDIA DE NOTAS
@@ -2570,7 +2588,7 @@ mediaDFlc=DF.NU_NOTA_LC.mean()
 mediaDFmt=DF.NU_NOTA_MT.mean()
 
 
-# In[ ]:
+# In[20]:
 
 
 #Obtendo Valores de Notas Máximas e Mínimas
@@ -2602,7 +2620,7 @@ lcd=dados.NU_NOTA_LC.describe()
 mtd=dados.NU_NOTA_MT.describe()
 
 
-# In[ ]:
+# In[21]:
 
 
 #Filtrando os dados por genero, raça, renda e tipo de escola
@@ -2647,7 +2665,7 @@ escola4=dados.loc[dados.TP_ESCOLA==4] #faz filtragem de dados para escola exteri
 
 
 
-# In[ ]:
+# In[23]:
 
 
 print(rendaK.NU_NOTA_CN.mean(),
@@ -2656,7 +2674,7 @@ rendaK.NU_NOTA_LC.mean(),
 rendaK.NU_NOTA_MT.mean())
 
 
-# In[ ]:
+# In[24]:
 
 
 print(rendaP.NU_NOTA_CN.mean(),
@@ -2698,11 +2716,56 @@ rendaQ.NU_NOTA_MT.describe()
 # In[ ]:
 
 
+
+
+
+# In[85]:
+
+
+binsteste = np.linspace(0,1000,51)
+
+
+# In[ ]:
+
+
+info1, bins1, lixo = plt.hist(notasCN, color="green",bins=binsteste,density=True,rwidth=0.85,label = "norm")
+
+
+# In[ ]:
+
+
+info2, bins1, lixo = plt.hist(notasCH, color="red",bins=binsteste,density=True,rwidth=0.85,label = "norm")
+
+
+# In[ ]:
+
+
+info3, bins1, lixo = plt.hist(notasLC, color="black",bins=binsteste,density=True,rwidth=0.85,label = "norm")
+
+
+# In[ ]:
+
+
+info4, bins1, lixo = plt.hist(notasMT, color="blue",bins=binsteste,density=True,rwidth=0.85,label = "norm")
+
+
+# In[ ]:
+
+
+
+
+
+# In[91]:
+
+
 #Distribuição de notas em Ciências naturais
-plt.hist(dados.NU_NOTA_CN, color="green",bins=50)#,marker='.' )
+#info1, bins1, lixo = plt.hist(notasCN, color="green",bins=binsteste,density=True,rwidth=0.85,label = "norm")#,marker='.' )
+#density= True
+ax = plt.bar(binsteste[:-1], info1*20,17, color="green")
 plt.title("Notas em Ciências da Natureza")
 #x_axis('off')
 #plt.axis([0, 1000, 0, 10000])
+#plt.axis(0, 1000)
 #plt.gca().invert_xaxis()
 plt.ylabel("Parcela de Inscritos")
 plt.xlabel("Valores das Notas")
@@ -2710,11 +2773,12 @@ plt.grid(True)
 plt.show()
 
 
-# In[ ]:
+# In[100]:
 
 
 #Distribuição de notas em Ciências humanas
-plt.hist(notasCH, color="red", bins=50)#marker='.')
+#plt.hist(notasCH, color="red", bins=binsteste,density=True,rwidth=0.85,align = 'left',stacked = True, alpha = 0.7,label = "norm")#marker='.')
+plt.bar(binsteste[:-1], info2*20,17, color="red")
 plt.title("Notas em Ciências Humanas")
 plt.ylabel("Parcela de Inscritos")
 plt.xlabel("Valores das Notas ")
@@ -2722,11 +2786,13 @@ plt.grid(True)
 plt.show()
 
 
-# In[ ]:
+# In[101]:
 
 
 #Distribuição de notas em Linguagens e Códigos
-plt.hist(notasLC, color="black",bins=50)#,marker='.' )
+#plt.hist(notasLC, color="black",bins=binsteste,density=True,rwidth=0.85,align = 'left',stacked = True, alpha = 0.7,label = "norm")#,marker='.' )
+#density= True
+plt.bar(binsteste[:-1], info3*20,17, color="black")
 plt.title("Notas em Linguagens e Códigos")
 plt.ylabel("Parcela de Inscritos")
 plt.xlabel("Valores das Notas")
@@ -2734,11 +2800,13 @@ plt.grid(True)
 plt.show()
 
 
-# In[ ]:
+# In[102]:
 
 
 #Distribuição de notas em Matemática
-plt.hist(notasMT, color="blue", bins=50)# marker='.')
+#plt.hist(notasMT, color="blue", bins=binsteste,density=True,rwidth=0.85,align = 'left',stacked = True, alpha = 0.7,label = "norm")# marker='.')
+#density= True
+plt.bar(binsteste[:-1], info4*20,17, color="blue")
 plt.title("Notas em Matemática")
 plt.ylabel("Parcela de Inscritos")
 plt.xlabel("Valores das Notas")
@@ -3429,4 +3497,25 @@ escolaEq33lc)
 
 
 
+
+
+# In[ ]:
+
+
+#print(np.max(info1))
+#info2, bins2, lixo = plt.hist(notasCN, color="green",bins=binsteste,density=True,rwidth=0.85,align = 'left',stacked = True, alpha = 0.7,label = "norm")#,marker='.' )
+#print(np.max(info2)/7035)
+#plt.figure(3654)
+ax = plt.bar(binsteste[:-1], info1*20,17, color="green")
+plt.ylabel("Percentual de candidatos ")
+
+plt.figure(365)
+plt.plot(binsteste[:-1],info2, 's')
+print(np.max(info1*20))
+
+
+# In[ ]:
+
+
+notasCN.shape
 

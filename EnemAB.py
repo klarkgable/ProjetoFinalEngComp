@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 dados= pd.read_excel('C:\\Users\SOLDADO GABLE\Desktop\micros_dados_enem_2017_10000.xls',encoding = "ISO-8859-1",sep =';')
 
 
-# In[ ]:
+# In[2]:
 
 
 #Vetores com respostas e gabaritos das provas
@@ -34,7 +35,7 @@ gabaritoMT=dados.TX_GABARITO_MT    #Vetor com o gabarito da parte objetiva da pr
 
 
 
-# In[ ]:
+# In[3]:
 
 
 #Eliminando os campos nulos
@@ -62,7 +63,7 @@ gabaritoMT.dropna(inplace=True)
 
 
 
-# In[ ]:
+# In[4]:
 
 
 #ROTINA PARA GERAR COLUNAS DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Ciências da Natureza
@@ -351,7 +352,7 @@ dados['TX_Result_CN_questao45']=resultCNq45
 
 
 
-# In[ ]:
+# In[5]:
 
 
 #ROTINA PARA GERAR COLUNA DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Ciências Humanas
@@ -642,7 +643,7 @@ dados['TX_Result_CH_questao45']=resultCHq45
 
 
 
-# In[ ]:
+# In[6]:
 
 
 #ROTINA PARA GERAR COLUNA DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Linguagens e Códigos
@@ -962,7 +963,7 @@ dados['TX_Result_LC_questao50']=resultLCq50
 
 
 
-# In[ ]:
+# In[7]:
 
 
 #ROTINA PARA GERAR COLUNA DE ZEROS E UNS DE ACORDO COM RESPOSTA E GABARITO DE CADA ALUNO NA PROVA DE Matemática
@@ -1252,7 +1253,7 @@ dados['TX_Result_MT_questao45']=resultMTq45
 
 
 
-# In[ ]:
+# In[8]:
 
 
 #Filtrando os dados pelos tipos de cadernos de provas
@@ -1288,7 +1289,7 @@ cadCinzaMT=dados.loc[dados.CO_PROVA_MT==406.0] #faz filtragem de dados com CO_PR
 
 
 
-# In[ ]:
+# In[9]:
 
 
 ### Respostas para cada questão, separando por tipo de caderno na prova de CN ###
@@ -1347,7 +1348,7 @@ respCNQ45az=cadAzulCN.TX_Result_CN_questao45.value_counts()
 
 
 
-# In[ ]:
+# In[10]:
 
 
 ### Respostas para cada questão, separando por tipo de caderno na prova de CH ###
@@ -1406,7 +1407,7 @@ respCHQ45az=cadAzulCH.TX_Result_CH_questao45.value_counts()
 
 
 
-# In[ ]:
+# In[11]:
 
 
 ### Respostas para cada questão, separando por tipo de caderno na prova de LC ###
@@ -1470,7 +1471,7 @@ respLCQ50az=cadAzulLC.TX_Result_LC_questao50.value_counts()
 
 
 
-# In[ ]:
+# In[12]:
 
 
 ### Respostas para cada questão, separando por tipo de caderno na prova de MT ###
@@ -1532,11 +1533,26 @@ respMTQ45az=cadAzulMT.TX_Result_MT_questao45.value_counts()
 # In[ ]:
 
 
+
+
+
+# In[37]:
+
+
+totalCN11=respCNQ11az.sum()
+
+
+# In[38]:
+
+
 #Plotando gráfico em barra na questão 11 da prova CN 
-respCNQ11az.plot.bar()
+ordem=["A","B","C","D","E",".","*"]
+
+temp=(respCNQ11az.loc[ordem]/totalCN11)
+temp.plot.bar()
 plt.title("Marcação de alternativas na Q11 de CN")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Percentual de Inscritos")
 plt.grid(True)
 plt.show()
 
@@ -1544,8 +1560,20 @@ plt.show()
 # In[ ]:
 
 
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[16]:
+
+
 #Plotando gráfico em barra na questão 25 da prova CN 
-respCNQ25az.plot.bar()
+respCNQ25az.loc[ordem].plot.bar()
 plt.title("Marcação de alternativas na Q25 de CN")
 plt.xlabel("Alternativas")
 plt.ylabel("Quantidade de inscritos")
@@ -1556,32 +1584,64 @@ plt.show()
 # In[ ]:
 
 
+
+
+
+# In[40]:
+
+
+totalCN16=respCNQ16az.sum()
+
+
+# In[ ]:
+
+
+
+
+
+# In[41]:
+
+
 #Plotando gráfico em barra na questão 16 da prova CN 
-respCNQ16az.plot.bar()
+temp=(respCNQ16az.loc[ordem]/totalCN16)
+temp.plot.bar()
 plt.title("Marcação de alternativas na Q16 de CN")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Percentual de inscritos")
 plt.grid(True)
 plt.show()
 
 
+# In[44]:
+
+
+totalCH13=respCHQ13az.sum()
+
+
 # In[ ]:
+
+
+
+
+
+# In[46]:
 
 
 #Plotando gráfico em barra na questão 13 da prova CH
-respCHQ13az.plot.bar()
+temp=(respCHQ13az.loc[ordem]/totalCH13)
+temp.plot.bar()
 plt.title("Marcação de alternativas na Q13 de CH")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Percentual de inscritos")
 plt.grid(True)
 plt.show()
 
 
-# In[ ]:
+# In[22]:
 
 
 #Plotando gráfico em barra na questão 26 da prova CH
-respCHQ26az.plot.bar()
+respCHQ26az.loc[ordem].plot.bar()
 plt.title("Marcação de alternativas na Q26 de CH")
 plt.xlabel("Alternativas")
 plt.ylabel("Quantidade de inscritos")
@@ -1592,33 +1652,59 @@ plt.show()
 # In[ ]:
 
 
+
+
+
+# In[47]:
+
+
+totalCH45=respCHQ45az.sum()
+
+
+# In[49]:
+
+
 #Plotando gráfico em barra na questão 45 da prova CH
-respCHQ45az.plot.bar()
+temp=(respCHQ45az.loc[ordem]/totalCH45)
+temp.plot.bar()
 plt.title("Marcação de alternativas na Q45 de CH")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Percentual de inscritos")
 plt.grid(True)
 plt.show()
 
 
 # In[ ]:
+
+
+
+
+
+# In[50]:
+
+
+totalLC39=respLCQ39az.sum()
+
+
+# In[53]:
 
 
 #Plotando gráfico em barra na questão 39 da prova LC
-respLCQ39az.plot.bar()
-plt.title("Marcação de alternativas na Q39 de LC")
+temp=(respLCQ39az.loc[ordem]/totalLC39)
+temp.plot.bar()
+plt.title("Marcação de alternativas na Q34 de LC")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Pecentual de inscritos")
 plt.grid(True)
 plt.show()
 
 
-# In[ ]:
+# In[31]:
 
 
 #Plotando gráfico em barra na questão 19 da prova LC
-respLCQ19az.plot.bar()
-plt.title("Marcação de alternativas na Q19 de LC")
+respLCQ19az.loc[ordem].plot.bar()
+plt.title("Marcação de alternativas na Q14 de LC")
 plt.xlabel("Alternativas")
 plt.ylabel("Quantidade de inscritos")
 plt.grid(True)
@@ -1626,34 +1712,60 @@ plt.show()
 
 
 # In[ ]:
+
+
+
+
+
+# In[54]:
+
+
+totalLC38=respLCQ38az.sum()
+
+
+# In[59]:
 
 
 #Plotando gráfico em barra na questão 38 da prova LC
-respLCQ38az.plot.bar()
-plt.title("Marcação de alternativas na Q38 de LC")
+temp=(respLCQ38az.loc[ordem]/totalLC38)
+temp.plot.bar()
+plt.title("Marcação de alternativas na Q33 de LC")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Percentual de inscritos")
 plt.grid(True)
 plt.show()
 
 
 # In[ ]:
+
+
+
+
+
+# In[57]:
+
+
+totalMT19=respMTQ19az.sum()
+
+
+# In[60]:
 
 
 #Plotando gráfico em barra na questão 19 da prova MT
-respMTQ19az.plot.bar()
+temp=(respMTQ19az.loc[ordem]/totalMT19)
+temp.plot.bar()
 plt.title("Marcação de alternativas na Q19 de MT")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Percentual de inscritos")
 plt.grid(True)
 plt.show()
 
 
-# In[ ]:
+# In[28]:
 
 
 #Plotando gráfico em barra na questão 43 da prova MT
-respMTQ43az.plot.bar()
+respMTQ43az.loc[ordem].plot.bar()
 plt.title("Marcação de alternativas na Q43 de MT")
 plt.xlabel("Alternativas")
 plt.ylabel("Quantidade de inscritos")
@@ -1664,11 +1776,30 @@ plt.show()
 # In[ ]:
 
 
+
+
+
+# In[61]:
+
+
+totalMT25=respMTQ25az.sum()
+
+
+# In[62]:
+
+
 #Plotando gráfico em barra na questão 25 da prova MT
-respMTQ25az.plot.bar()
+temp=(respMTQ25az.loc[ordem]/totalMT25)
+temp.plot.bar()
 plt.title("Marcação de alternativas na Q25 de MT")
 plt.xlabel("Alternativas")
-plt.ylabel("Quantidade de inscritos")
+plt.ylabel("Percentual de inscritos")
 plt.grid(True)
 plt.show()
+
+
+# In[ ]:
+
+
+
 
